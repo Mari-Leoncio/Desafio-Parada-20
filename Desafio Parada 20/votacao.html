@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+let candidataAna = 0;
+let candidataMaria = 0;
+let candidatoGustavo = 0;
+let candidatoJeremias = 0;
+let nuloBranco = 0;
+
+function exibirOpcoes() {
+  console.log('--- Opções de Voto ---');
+  console.log('1 - Candidata Ana');
+  console.log('2 - Candidata Maria');
+  console.log('3 - Candidato Gustavo');
+  console.log('4 - Candidato Jeremias');
+  console.log('0 - Nulo/Branco');
+}
+
+function votar(opcao) {
+  switch (opcao) {
+    case '1':
+      candidataAna++;
+      break;
+    case '2':
+      candidataMaria++;
+      break;
+    case '3':
+      candidatoGustavo++;
+      break;
+    case '4':
+      candidatoJeremias++;
+      break;
+    case '0':
+      nuloBranco++;
+      break;
+    default:
+      console.log('Opção inválida!');
+      break;
+  }
+}
+
+function exibirResultado() {
+  console.log('--- Resultado da Eleição ---');
+  console.log('Candidata Ana: ' + candidataAna + ' voto(s)');
+  console.log('Candidata Maria: ' + candidataMaria + ' voto(s)');
+  console.log('Candidato Gustavo: ' + candidatoGustavo + ' voto(s)');
+  console.log('Candidato Jeremias: ' + candidatoJeremias + ' voto(s)');
+  console.log('Nulo/Branco: ' + nuloBranco + ' voto(s)');
+}
+
+function votacao() {
+  let continuar = true;
+
+  while (continuar) {
+    exibirOpcoes();
+    const opcao = prompt('Digite o número da opção desejada (ou -1 para sair):');
+
+    switch (opcao) {
+      case '-1':
+        continuar = false;
+        break;
+      default:
+        votar(opcao);
+        break;
+    }
+  }
+
+  exibirResultado();
+}
+
+votacao();
+
+</script>
+</body>
+</html>
